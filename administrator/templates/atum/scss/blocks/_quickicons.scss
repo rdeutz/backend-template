@@ -1,7 +1,5 @@
 // Quick Icons
 
-@import "../variables";
-
 .quick-icons {
 
   ul {
@@ -54,7 +52,7 @@
     @include media-breakpoint-up(md) {
       line-height: 2rem;
     }
-	
+
     @include hover-focus-active {
       text-decoration: none;
       box-shadow: $quickicon-box-shadow-hover;

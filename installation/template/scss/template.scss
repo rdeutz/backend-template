@@ -1,4 +1,8 @@
+// Bootstrap functions
+@import "../../../media/vendor/bootstrap/scss/functions";
+
 // Variables
+
 @import "../../../administrator/templates/atum/scss/variables";
 $fa-font-path: "../../../media/vendor/font-awesome/fonts";
 
@@ -9,7 +13,7 @@ $fa-font-path: "../../../media/vendor/font-awesome/fonts";
 @import "../../../media/vendor/font-awesome/scss/font-awesome";
 
 // Backend Template stuff
-@import "../../../administrator/templates/atum/scss/mixin";
+@import "../../../administrator/templates/atum/scss/mixins";
 @import "../../../administrator/templates/atum/scss/blocks/global";
 @import "../../../administrator/templates/atum/scss/blocks/header";
 
