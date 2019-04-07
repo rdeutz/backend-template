@@ -89,6 +89,7 @@ trait CoreButtonsTrait
 	public function help($ref, $useComponent = false, $url = null, $component = null): HelpButton
 	{
 		return $this->helpButton('help', 'JTOOLBAR_HELP')
+			->layout('joomla.toolbar.helplink')
 			->ref($ref)
 			->useComponent($useComponent)
 			->url($url)
@@ -462,6 +463,7 @@ trait CoreButtonsTrait
 		$return = urlencode(base64_encode($uri));
 
 		return $this->linkButton('options', $text)
+			->layout('joomla.toolbar.options')
 			->url('index.php?option=com_config&amp;view=component&amp;component=' . $component . '&amp;path=' . $path . '&amp;return=' . $return);
 	}
 

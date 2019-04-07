@@ -202,6 +202,13 @@ class HtmlView extends BaseHtmlView
 
 		ToolbarHelper::title(Text::_('COM_CONTENT_ARTICLES_TITLE'), 'stack article');
 
+		if ($user->authorise('core.admin', 'com_content') || $user->authorise('core.options', 'com_content'))
+		{
+			$toolbar->preferences('com_content');
+		}
+
+		$toolbar->help('JHELP_CONTENT_ARTICLE_MANAGER');
+
 		if ($canDo->get('core.create') || count($user->getAuthorisedCategories('com_content', 'core.create')) > 0)
 		{
 			$toolbar->addNew('article.add');
@@ -274,12 +281,6 @@ class HtmlView extends BaseHtmlView
 				->listCheck(true);
 		}
 
-		if ($user->authorise('core.admin', 'com_content') || $user->authorise('core.options', 'com_content'))
-		{
-			$toolbar->preferences('com_content');
-		}
-
-		$toolbar->help('JHELP_CONTENT_ARTICLE_MANAGER');
 	}
 
 	/**
