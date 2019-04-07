@@ -27,7 +27,7 @@ use Joomla\CMS\Language\Text;
  *
  * @since  3.0
  */
-class HelpButton extends BasicButton
+class OptionsButton extends BasicButton
 {
 	/**
 	 * Prepare options for this button.

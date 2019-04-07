@@ -21,9 +21,12 @@
   .btn-toolbar {
     margin-bottom: 0;
 
+    button {
+      box-shadow: $atum-box-shadow;
+    }
+
     > * {
       margin-left: .75rem;
-      box-shadow: $atum-box-shadow;
       margin-bottom: 10px;
 
       &:first-child {
@@ -152,4 +155,8 @@
   @include media-breakpoint-down(xs) {
     display:block;
   }
+}
+
+.subhead .btn-toolbar > .toolbar--helplink {
+  box-shadow: none;
 }

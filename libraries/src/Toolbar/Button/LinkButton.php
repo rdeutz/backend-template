@@ -31,7 +31,7 @@ class LinkButton extends ToolbarButton
 	 *
 	 * @since  4.0.0
 	 */
-	protected $layout = 'joomla.toolbar.link';
+	protected $layout = 'joomla.toolbar.iconlink';
 
 	/**
 	 * Prepare options for this button.
