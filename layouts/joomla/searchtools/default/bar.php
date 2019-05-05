@@ -10,6 +10,7 @@
 defined('JPATH_BASE') or die;
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\Registry\Registry;
 
 $data = $displayData;
@@ -27,6 +28,9 @@ $filterButton = $data['options']->get('filterButton', true);
 $searchButton = $data['options']->get('searchButton', true);
 
 $filters = $data['view']->filterForm->getGroup('filter');
+
+//$toolbar = Toolbar::getInstance();
+echo Toolbar::getInstance('toolbar')->render()
 ?>
 
 <?php if (!empty($filters['filter_search'])) : ?>

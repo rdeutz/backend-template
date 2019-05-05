@@ -10,6 +10,7 @@ namespace Joomla\CMS\Toolbar;
 
 defined('JPATH_PLATFORM') or die;
 
+use Exception;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
@@ -53,12 +54,12 @@ class Toolbar
 	protected $_name = [];
 
 	/**
-	 * Toolbar array
+	 * Toolbar array, we keep track of buttons in specific sections.
 	 *
 	 * @var    array
 	 * @since  1.5
 	 */
-	protected $_bar = [];
+	protected $_bar = array(array());
 
 	/**
 	 * Directories, where button types can be stored.
@@ -85,20 +86,12 @@ class Toolbar
 	protected $factory;
 
 	/**
-	 * Breadcrumbs array
-	 *
-	 * @var    array
-	 * @since  4.0.0
-	 */
-	protected $breadcrumbs = [];
-
-
-	/**
 	 * Constructor
 	 *
 	 * @param   string                   $name     The toolbar name.
 	 * @param   ToolbarFactoryInterface  $factory  The toolbar factory.
 	 *
+	 * @throws  Exception When application is not available
 	 * @since   1.5
 	 */
 	public function __construct($name = 'toolbar', ToolbarFactoryInterface $factory = null)
@@ -144,10 +137,10 @@ class Toolbar
 	 *
 	 * @return  Toolbar  The Toolbar object.
 	 *
-	 * @since       1.5
+	 * @throws \Joomla\DI\Exception\KeyNotFoundException
 	 * @deprecated  5.0 Use the ToolbarFactoryInterface instead
 	 *
-	 * @throws \Joomla\DI\Exception\KeyNotFoundException
+	 * @since       1.5
 	 */
 	public static function getInstance($name = 'toolbar')
 	{
@@ -188,18 +181,21 @@ class Toolbar
 	 */
 	public function appendButton($button, ...$args)
 	{
+		// If we get an array with section key, we put it in there. Default to actions section
+		$section = array_column($args, 'section')[0] ?? 'actions';
+
 		if ($button instanceof ToolbarButton)
 		{
 			$button->setParent($this);
 
-			$this->_bar[] = $button;
+			$this->_bar[$section][] = $button;
 
 			return $button;
 		}
 
 		// B/C
 		array_unshift($args, $button);
-		$this->_bar[] = $args;
+		$this->_bar[$section][] = $args;
 
 		Log::add(
 			sprintf(
@@ -217,27 +213,30 @@ class Toolbar
 	/**
 	 * Get the list of toolbar links.
 	 *
+	 * @param   string  $section  Optional section for the buttons, pass falsy to get all buttons
+	 *
 	 * @return  array
 	 *
 	 * @since   1.6
 	 */
-	public function getItems()
+	public function getItems($section = 'actions')
 	{
-		return $this->_bar;
+		return $section ? $this->_bar[$section] : $this->bar;
 	}
 
 	/**
 	 * Set the button list.
 	 *
-	 * @param   ToolbarButton[]  $items  The button list array.
+	 * @param   ToolbarButton[]  $items     The button list array.
+	 * @param   string           $section  Optional section for the buttons.
 	 *
 	 * @return  static
 	 *
 	 * @since   4.0.0
 	 */
-	public function setItems(array $items): self
+	public function setItems(array $items, $section = 'actions'): self
 	{
-		$this->_bar = $items;
+		$this->_bar[$section] = $items;
 
 		return $this;
 	}
@@ -271,14 +270,14 @@ class Toolbar
 		{
 			$button->setParent($this);
 
-			array_unshift($this->_bar, $button);
+			array_unshift($this->_bar[$args['section'] ?? 'actions' ], $button);
 
 			return $button;
 		}
 
 		// B/C
 		array_unshift($args, $button);
-		array_unshift($this->_bar, $args);
+		array_unshift($this->_bar[$args['section'] ?? 'actions' ], $args);
 
 		Log::add(
 			sprintf(
@@ -297,13 +296,14 @@ class Toolbar
 	 * Render a toolbar.
 	 *
 	 * @param   array  $options  The options of toolbar.
+	 * @param   string $section Optional section of the buttons.
 	 *
 	 * @return  string  HTML for the toolbar.
 	 *
-	 * @throws \Exception
+	 * @throws Exception
 	 * @since   1.5
 	 */
-	public function render(array $options = [])
+	public function render(array $options = [], $section = 'actions')
 	{
 		$html = [];
 
@@ -318,36 +318,19 @@ class Toolbar
 		}
 
 		// Render each button in the toolbar.
-		foreach ($this->_bar as $button)
+		foreach ($this->_bar[$section] as $button)
 		{
+			// Only the child supports the new Button class
 			if ($button instanceof ToolbarButton)
 			{
-				switch (strtolower($button->getName()))
-				{
-					// Special buttons shown on the breadcrumb bar
-					case 'options':
-					case 'help':
-						$this->breadcrumbs['buttons'][] = $button->render();
-						break;
-					default:
-						// Child dropdown only support new syntax
-						$button->setOption('is_child', $isChild);
+				$button->setOption('is_child', $isChild);
 
-						$html[] = $button->render();
-						break;
-				}
+				$html[] = $button->render();
 			}
 			// B/C
 			else
 			{
-				if (preg_grep("/options|help/i", $button))
-				{
-					$this->breadcrumbs['buttons'][] = $this->renderButton($button);
-				}
-				else
-				{
-					$html[] = $this->renderButton($button);
-				}
+				$html[] = $this->renderButton($button);
 			}
 		}
 
@@ -357,11 +340,6 @@ class Toolbar
 			$layout = new FileLayout('joomla.toolbar.containerclose');
 
 			$html[] = $layout->render([]);
-		}
-
-		if (strtolower($this->getName()) === 'toolbar' && Factory::getApplication()->input->get('layout') !== 'edit')
-		{
-			array_unshift($html, LayoutHelper::render('joomla.toolbar.breadcrumb', ['items' => $this->breadcrumbs]));
 		}
 
 		return implode('', $html);
@@ -374,8 +352,8 @@ class Toolbar
 	 *
 	 * @return  string
 	 *
+	 * @throws  Exception
 	 * @since   1.5
-	 * @throws  \Exception
 	 */
 	public function renderButton(&$node)
 	{
@@ -472,7 +450,7 @@ class Toolbar
 	 *
 	 * @return  array
 	 *
-	 * @since   4.0.0
+	 * @since       4.0.0
 	 * @deprecated  5.0  ToolbarButton classes should be autoloaded
 	 */
 	public function getButtonPath(): array
@@ -511,7 +489,7 @@ class Toolbar
 	 *
 	 * @return  ToolbarButton
 	 *
-	 * @throws  \Exception
+	 * @throws  Exception
 	 *
 	 * @since   4.0.0
 	 */
@@ -526,7 +504,15 @@ class Toolbar
 			$button->name($args[0] ?? '')
 				->text($args[1] ?? '');
 
-			return $this->appendButton($button);
+			// Default to actions sections, set help and link in the config section
+			$section = 'actions';
+
+			if (in_array($name, ['helpButton', 'linkButton']))
+			{
+				$section = 'config';
+			}
+
+			return $this->appendButton($button, ['section' => $section]);
 		}
 
 		throw new \BadMethodCallException(

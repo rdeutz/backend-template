@@ -13,6 +13,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Toolbar\Toolbar;
 use OzdemirBurak\Iris\Color\Hex;
 
 /** @var JDocumentHtml $this */
@@ -31,6 +32,7 @@ $itemid     = $input->get('Itemid', '');
 $cpanel     = $option === 'com_cpanel';
 $hiddenMenu = $app->input->get('hidemainmenu');
 $joomlaLogo = $this->baseurl . '/templates/' . $this->template . '/images/logo.svg';
+$editLayout = $layout === 'edit';
 
 // Template params
 $siteLogo  = $this->params->get('siteLogo')
@@ -235,6 +237,9 @@ $this->addStyleDeclaration($css);
 				<div class="row">
 					<div class="col-md-12">
 						<jdoc:include type="modules" name="toolbar" style="no"/>
+                        <?php if ($editLayout): ?>
+                            <?php echo Toolbar::getInstance()->render() ?>
+                        <?php endif; ?>
 					</div>
 				</div>
 			</div>

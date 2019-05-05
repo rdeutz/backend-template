@@ -10,4 +10,4 @@
 defined('_JEXEC') or die;
 
 // Echo the toolbar.
-echo $toolbar;
+//echo $toolbar;
