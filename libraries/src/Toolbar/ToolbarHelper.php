@@ -41,7 +41,7 @@ abstract class ToolbarHelper
 		$layout = new FileLayout('joomla.toolbar.title');
 		$html   = $layout->render(array('title' => $title, 'icon' => $icon));
 
-		$app = Factory::getApplication();
+		$app                  = Factory::getApplication();
 		$app->JComponentTitle = $html;
 		Factory::getDocument()->setTitle(strip_tags($title) . ' - ' . $app->get('sitename') . ' - ' . Text::_('JADMINISTRATION'));
 	}
@@ -66,16 +66,18 @@ abstract class ToolbarHelper
 	/**
 	 * Writes a divider between menu buttons
 	 *
+	 * @param   string  $section  Optional section to add the divider to
+	 *
 	 * @return  void
 	 *
 	 * @since   1.5
 	 */
-	public static function divider()
+	public static function divider($section = 'actions')
 	{
 		$bar = Toolbar::getInstance('toolbar');
 
 		// Add a divider.
-		$bar->appendButton('Separator', 'divider');
+		$bar->appendButton('Separator', 'divider', ['section' => $section]);
 	}
 
 	/**
@@ -141,7 +143,7 @@ abstract class ToolbarHelper
 		$bar = Toolbar::getInstance('toolbar');
 
 		// Add a help button.
-		$bar->appendButton('Help', $ref, $com, $override, $component);
+		$bar->appendButton('Help', $ref, $com, $override, $component, ['section' => 'config']);
 	}
 
 	/**
@@ -596,10 +598,10 @@ abstract class ToolbarHelper
 	public static function preferences($component, $height = '550', $width = '875', $alt = 'JToolbar_Options', $path = '')
 	{
 		$component = urlencode($component);
-		$path = urlencode($path);
-		$bar = Toolbar::getInstance('toolbar');
+		$path      = urlencode($path);
+		$bar       = Toolbar::getInstance('toolbar');
 
-		$uri = (string) Uri::getInstance();
+		$uri    = (string) Uri::getInstance();
 		$return = urlencode(base64_encode($uri));
 
 		// Add a button linking to config for component.
@@ -607,7 +609,8 @@ abstract class ToolbarHelper
 			'Link',
 			'options',
 			$alt,
-			'index.php?option=com_config&amp;view=component&amp;component=' . $component . '&amp;path=' . $path . '&amp;return=' . $return
+			'index.php?option=com_config&amp;view=component&amp;component=' . $component . '&amp;path=' . $path . '&amp;return=' . $return,
+			['section' => 'config']
 		);
 	}
 
@@ -671,8 +674,7 @@ abstract class ToolbarHelper
 		$saveGroup = $bar->dropdownButton('save-group');
 
 		$saveGroup->configure(
-			function (Toolbar $childBar) use ($buttons, $validOptions)
-			{
+			function (Toolbar $childBar) use ($buttons, $validOptions) {
 				foreach ($buttons as $button)
 				{
 					if (!array_key_exists($button[0], $validOptions))
@@ -681,7 +683,7 @@ abstract class ToolbarHelper
 					}
 
 					$options['group'] = true;
-					$altText = $button[2] ?? $validOptions[$button[0]];
+					$altText          = $button[2] ?? $validOptions[$button[0]];
 
 					$childBar->{$button[0]}($button[1])
 						->text($altText);
