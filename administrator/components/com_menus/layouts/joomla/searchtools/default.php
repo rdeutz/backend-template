@@ -12,6 +12,7 @@ defined('JPATH_BASE') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Toolbar\Toolbar;
 
 /** @var  array  $displayData */
 $data = $displayData;
@@ -46,6 +47,7 @@ HTMLHelper::_('searchtools.form', $formSelector, $data['options']);
 
 $filtersClass = isset($data['view']->activeFilters) && $data['view']->activeFilters ? ' js-stools-container-filters-visible' : '';
 ?>
+<?php echo Toolbar::getInstance()->render([], 'actions'); ?>
 <div class="js-stools" role="search">
 	<?php
 		if ($data['view'] instanceof \Joomla\Component\Menus\Administrator\View\Items\HtmlView)
