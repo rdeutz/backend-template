@@ -266,18 +266,21 @@ class Toolbar
 	 */
 	public function prependButton($button, ...$args)
 	{
+		// If we get an array with section key, we put it in there. Default to actions section
+		$section = array_column($args, 'section')[0] ?? 'actions';
+
 		if ($button instanceof ToolbarButton)
 		{
 			$button->setParent($this);
 
-			array_unshift($this->_bar[$args['section'] ?? 'actions' ], $button);
+			array_unshift($this->_bar[$section], $button);
 
 			return $button;
 		}
 
 		// B/C
 		array_unshift($args, $button);
-		array_unshift($this->_bar[$args['section'] ?? 'actions' ], $args);
+		array_unshift($this->_bar[$section], $args);
 
 		Log::add(
 			sprintf(
