@@ -13,6 +13,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Toolbar\Toolbar;
 
 $data = $displayData;
 
@@ -84,6 +85,7 @@ $filtersActiveClass = $hideActiveFilters ? '' : ' js-stools-container-filters-vi
 // Load search tools
 HTMLHelper::_('searchtools.form', $data['options']['formSelector'], $data['options']);
 ?>
+<?php echo Toolbar::getInstance()->render([], 'actions'); ?>
 <div class="js-stools" role="search">
 	<?php if ($data['options']['showSelector']) : ?>
 	<div class="js-stools-container-selector">
