@@ -113,7 +113,6 @@ class ExtensionHelper
 		array('module', 'mod_stats_admin', '', 1),
 		array('module', 'mod_status', '', 1),
 		array('module', 'mod_title', '', 1),
-		array('module', 'mod_toolbar', '', 1),
 		array('module', 'mod_version', '', 1),
 
 		// Core module extensions - site
