@@ -243,7 +243,7 @@ $this->addStyleDeclaration($css);
                         <?php endif; ?>
 						<jdoc:include type="modules" name="toolbar" style="no"/>
                         <?php if ($editLayout): ?>
-                            <?php echo Toolbar::getInstance()->render() ?>
+                            <?php echo Toolbar::getInstance()->render([], 'actions') ?>
                         <?php endif; ?>
 					</div>
 				</div>
