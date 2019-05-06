@@ -16,12 +16,6 @@ defined('JPATH_BASE') or die;
  */
 extract($displayData, EXTR_OVERWRITE);
 
-$buttons = false;
-
-if (array_key_exists('buttons', $items))
-{
-    $buttons = true;
-}
 ?>
 <div class="row">
     <div class="col-md-11">
@@ -30,7 +24,7 @@ if (array_key_exists('buttons', $items))
             <li class="float-left">
                 <span class="divider fa fa-location" aria-hidden="true"></span>
             </li>
-			<?php foreach ($items['breadcrumbs'] as $key => $item) : ?>
+			<?php foreach ($items as $key => $item) : ?>
 				<?php if ($item->link === '') : ?>
 					<?php $breadcrumbItem = '<span itemprop="name">' . $item->name . '</span>'; ?>
 				<?php else : ?>
@@ -46,9 +40,4 @@ if (array_key_exists('buttons', $items))
         </ol>
         </nav>
     </div>
-    <?php if ($buttons) : ?>
-        <div class="col-md-1">
-            <?php echo implode(' ', $items['buttons']); ?>
-        </div>
-    <?php endif; ?>
 </div>
