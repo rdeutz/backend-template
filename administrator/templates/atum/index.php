@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Toolbar\Toolbar;
 use OzdemirBurak\Iris\Color\Hex;
@@ -236,6 +237,10 @@ $this->addStyleDeclaration($css);
 				<div id="container-collapse" class="container-collapse"></div>
 				<div class="row">
 					<div class="col-md-12">
+                        <?php if (!$editLayout): ?>
+                            <?php echo LayoutHelper::render('joomla.toolbar.breadcrumb', ['items' => $app->getPathway()->getPathWay()])  ?>
+                            <?php echo Toolbar::getInstance()->render([], 'config') ?>
+                        <?php endif; ?>
 						<jdoc:include type="modules" name="toolbar" style="no"/>
                         <?php if ($editLayout): ?>
                             <?php echo Toolbar::getInstance()->render() ?>
