@@ -91,8 +91,9 @@ class Toolbar
 	 * @param   string                   $name     The toolbar name.
 	 * @param   ToolbarFactoryInterface  $factory  The toolbar factory.
 	 *
-	 * @throws  Exception When application is not available
 	 * @since   1.5
+	 *
+	 * @throws  Exception When application is not available
 	 */
 	public function __construct($name = 'toolbar', ToolbarFactoryInterface $factory = null)
 	{
@@ -137,10 +138,11 @@ class Toolbar
 	 *
 	 * @return  Toolbar  The Toolbar object.
 	 *
-	 * @throws \Joomla\DI\Exception\KeyNotFoundException
 	 * @deprecated  5.0 Use the ToolbarFactoryInterface instead
 	 *
 	 * @since       1.5
+	 *
+	 * @throws \Joomla\DI\Exception\KeyNotFoundException
 	 */
 	public static function getInstance($name = 'toolbar')
 	{
@@ -303,8 +305,9 @@ class Toolbar
 	 *
 	 * @return  string  HTML for the toolbar.
 	 *
-	 * @throws Exception
 	 * @since   1.5
+	 *
+	 * @throws  Exception
 	 */
 	public function render(array $options = [], $section = 'actions')
 	{
@@ -355,8 +358,9 @@ class Toolbar
 	 *
 	 * @return  string
 	 *
-	 * @throws  Exception
 	 * @since   1.5
+	 *
+	 * @throws  Exception
 	 */
 	public function renderButton(&$node)
 	{
@@ -478,6 +482,8 @@ class Toolbar
 	 * @return  static
 	 *
 	 * @since   4.0.0
+	 *
+	 * @throws  Exception
 	 */
 	public function createChild($name): self
 	{
@@ -492,9 +498,9 @@ class Toolbar
 	 *
 	 * @return  ToolbarButton
 	 *
-	 * @throws  Exception
-	 *
 	 * @since   4.0.0
+	 *
+	 * @throws  Exception
 	 */
 	public function __call($name, $args)
 	{
