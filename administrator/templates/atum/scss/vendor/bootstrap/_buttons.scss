@@ -11,8 +11,8 @@
   box-shadow: $atum-box-shadow;
   position: relative;
 
-  span[class*=" icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
-  span[class*=" fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
+  span[class*="icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
+  span[class*="fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
     color: var(--atum-text-light);
     opacity: .93;
     position: absolute;
@@ -28,10 +28,9 @@
   &.btn-sm {
     padding: 0rem 0.3rem 0rem 2.5rem;
     font-size: 0.8rem;
-    line-height:
 
-    span[class*=" icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
-    span[class*=" fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
+    span[class*="icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
+    span[class*="fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
       color: var(--atum-text-light);
       opacity: .93;
       position: absolute;
@@ -99,7 +98,7 @@
       }
 
     }
-    &.btn-link, &.btn-secondary {
+    &.btn-secondary {
       background: var(--atum-link-color);
       background: -moz-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2rem, #ffffff 2.01rem, #ffffff 100%);
       background: -webkit-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2rem, #ffffff 2.01rem, #ffffff 100%);
@@ -304,23 +303,27 @@
   }
 
   &.btn-link {
-    background: var(--atum-link-color);
-    background: -moz-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-    background: -webkit-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-    background: linear-gradient(to right, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-link-color)', endColorstr='#ffffff', GradientType=1);
+    background: transparent;
     text-align: center;
+    border: none;
+    box-shadow: none;
+    padding: 0.5rem 1rem;
+
     &:hover {
-      background: var(--atum-link-color);
-      background: -moz-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-      background: -webkit-linear-gradient(left, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-      background: linear-gradient(to right, var(--atum-link-color) 0, var(--atum-link-color) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-link-color)', endColorstr='#ffffff', GradientType=1);
+      background: transparent;
       color: var(--atum-link-color);
       text-decoration: none;
     }
     &.disabled, &:disabled {
       color: var(--atum-text-dark);
+    }
+
+    span[class*="icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
+    span[class*="fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
+      color: var(--atum-link-color);
+      opacity: .93;
+      position: relative;
+      padding: 0.8rem 0.5rem;
     }
 
   }
