@@ -183,7 +183,7 @@ class HtmlView extends BaseHtmlView
 					->text('JTOOLBAR_CHANGE_STATUS')
 					->toggleSplit(false)
 					->icon('fa fa-globe')
-					->buttonClass('btn btn-info')
+					->buttonClass('btn btn-sm btn-info')
 					->listCheck(true);
 
 				$childBar = $dropdown->getChildToolbar();
