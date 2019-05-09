@@ -203,7 +203,7 @@ a[target="_blank"]:before {
   }
 }
 .card-columns {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     column-count: 2;
   }
 }

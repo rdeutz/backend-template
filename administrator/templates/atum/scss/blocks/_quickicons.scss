@@ -13,6 +13,7 @@
 
   li {
     min-width: 10rem;
+    max-width: 100%;
     min-height: 7.5rem;
     position: relative;
     background: $quickicon-bg;
@@ -35,7 +36,7 @@
   }
 
   .quickicon-amount {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 300;
     letter-spacing: -0.2rem;
   }
@@ -48,39 +49,6 @@
 
   .quickicon-text {
     min-height: 1.2rem;
-  }
-
-  .quickicon-linkadd {
-    position: relative;
-    overflow: hidden;
-    font-size: .9rem;
-    line-height: 3.4rem;
-    margin-top: 0.4rem;
-    border: 1px solid $gray-400;
-    text-decoration: none;
-    box-shadow: $atum-box-shadow;
-
-    @include media-breakpoint-up(md) {
-      line-height: 2rem;
-    }
-
-    @include hover-focus-active {
-      text-decoration: none;
-      box-shadow: $atum-box-shadow;
-      color:rgba(255,255,255,0.9);
-      background: var(--atum-link-color);
-    }
-
-    .fa {
-      display: inline-block;
-      width: 35px;
-      height: auto;
-      line-height: 2rem;
-      color: var(--white);
-      position: absolute;
-      left: 0;
-      background-color: var(--atum-link-color);
-    }
   }
 
   a:not(.quickicon-linkadd) {
@@ -111,8 +79,16 @@
 
     .fa,
     .fab {
-      margin: 5px auto 0;
-      font-size: 1.3rem;
+      margin: 0.3rem auto;
+      font-size: 1.5rem;
+    }
+
+    .big {
+      .fa,
+      .fab {
+        margin: 0.3rem auto;
+        font-size: 2.5rem;
+      }
     }
 
     &.warning {

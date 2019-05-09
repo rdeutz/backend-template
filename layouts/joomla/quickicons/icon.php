@@ -38,7 +38,7 @@ if ($id !== '')
 <li class="col mb-3 d-flex <?php echo !empty($displayData['linkadd']) ? 'flex-column' : ''; ?>">
 	<a <?php echo $id . $class; ?> href="<?php echo $displayData['link']; ?>"<?php echo $target . $onclick . $title; ?>>
 		<?php if (isset($displayData['image'])): ?>
-			<div class="quickicon-icon d-flex align-items-end <?php isset($displayData['amount']) ? 'small' : 'big'; ?>">
+			<div class="quickicon-icon d-flex align-items-end <?php echo (isset($displayData['amount'])) ? 'small' : 'big'; ?>">
 				<div class="<?php echo $displayData['image']; ?>" aria-hidden="true"></div>
 			</div>
 		<?php endif; ?>
@@ -58,7 +58,7 @@ if ($id !== '')
 	</a>
 	<?php // Add the link to the edit-form
 		if (!empty($displayData['linkadd'])): ?>
-			<a class="btn-block text-center quickicon-linkadd j-links-link" href="<?php echo $displayData['linkadd']; ?>">
+			<a class="btn btn-secondary btn-block quickicon-linkadd j-links-link mt-2" href="<?php echo $displayData['linkadd']; ?>">
 				<span class="fa fa-plus mr-2" aria-hidden="true"></span>
 				<span class="sr-only"><?php echo Text::sprintf('MOD_QUICKICON_ADD_NEW', $add); ?></span>
 				<span aria-hidden="true"><?php echo $add; ?></span>
