@@ -1,6 +1,72 @@
 // Custom Forms
 
+.js-stools-container-filters-inner {
+  position: relative;
+}
+
+.js-stools-field-list, .js-stools-field-filter {
+  position: relative;
+
+  &::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    color: var(--atum-text-dark);
+    opacity: 0.95;
+    border: none;
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    pointer-events: none;
+  }
+}
+
+.js-stools .js-stools-field-list {
+  display:inline-block;
+}
+
+.js-stools .js-stools-field-filter {
+  display:block;
+}
+
+.custom-select, .choices__inner {
+
+  cursor: pointer;
+
+  border: 1px solid var(--atum-bg-dark-20);
+  color: var(--atum-text-dark);
+  padding: 0.1rem 2em 0.1rem 0.6rem;
+  font-size: 1rem;
+  box-shadow: $atum-box-shadow;
+  position: relative;
+
+  background: var(--atum-bg-dark-5);
+  background: -moz-linear-gradient(right, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  background: -webkit-linear-gradient(right, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  background: linear-gradient(to left, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-bg-dark-5)', endColorstr='#ffffff', GradientType=1);
+
+  text-align: left;
+
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+
+  &:hover {
+    background: var(--atum-bg-dark-10);
+    background: -moz-linear-gradient(right, var(--atum-bg-dark-10) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    background: -webkit-linear-gradient(right, var(--atum-bg-dark-10-5) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    background: linear-gradient(to left, var(--atum-bg-dark-10) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-bg-dark-10)', endColorstr='#ffffff', GradientType=1);
+  }
+
+  optgroup, option {
+    background-color: $white;
+  }
+}
+
 .custom-select {
+
+  max-width: $input-max-width;
 
   &.custom-select-color-state {
 
@@ -26,7 +92,25 @@
   }
 }
 
-
 .custom-file-label::after {
   color: var(--atum-text-light);
 }
+
+@include media-breakpoint-down(xs) {
+  .control-group {
+    .control-label {
+      float: none;
+      width: 95%;
+    }
+    .controls {
+      margin-left: 0;
+      .form-control,
+      .custom-select {
+        max-width: 90%;
+      }
+    }
+  }
+
+}
+
+
