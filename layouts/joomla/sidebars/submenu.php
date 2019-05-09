@@ -20,7 +20,7 @@ HTMLHelper::_('behavior.core');
 	<div id="sidebar" class="sidebar">
 		<button class="navbar-toggler options-menu d-md-none d-lg-none d-xl-non" type="button" data-toggle="collapse" data-target=".sidebar-nav" aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="fas fa-align-justify">
-				<?php echo Text::_('TPL_ATUM_TOGGLE_SIDEBAR'); ?>
+				<?php echo Text::_('TPL_ATUM_COLLAPSE_SIDEBAR'); ?>
 			</span>
 		</button>
 		<div class="sidebar-nav">
