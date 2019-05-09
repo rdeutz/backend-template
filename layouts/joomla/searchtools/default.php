@@ -97,10 +97,12 @@ HTMLHelper::_('searchtools.form', $data['options']['formSelector'], $data['optio
 	</div>
 	<!-- Filters div -->
 	<div class="js-stools-container-filters clearfix<?php echo $filtersActiveClass; ?>">
+		<div class="js-stools-container-filters-inner">
 		<?php echo $this->sublayout('list', $data); ?>
 		<?php if ($data['options']['filterButton']) : ?>
 		<?php echo $this->sublayout('filters', $data); ?>
 		<?php endif; ?>
+		</div>
 	</div>
 </div>
 <?php if ($data['options']['showNoResults']) : ?>

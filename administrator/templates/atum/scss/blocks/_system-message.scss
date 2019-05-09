@@ -1,0 +1,131 @@
+#system-message-container {
+  background: var(--atum-bg-light);
+  box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.3);
+
+  joomla-alert {
+    display: block;
+    min-width: 16rem;
+    padding: 0 0 1rem 0;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    opacity: 0;
+    border-radius: 0rem;
+    transition: opacity 0.15s linear;
+
+    h4, .alert-heading {
+      display: block;
+      width: 100%;
+      height: 4rem;
+      color: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
+
+    &[type="info"] {
+      .alert-heading {
+        background: var(--info);
+      }
+    }
+
+    &[type="success"] {
+      .alert-heading {
+        background: var(--success);
+      }
+    }
+
+    &[type="warning"] {
+      .alert-heading {
+        background: var(--warning);
+      }
+    }
+
+    div div {
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    joomla-alert {
+      transition: none;
+    }
+  }
+  joomla-alert.joomla-alert--show {
+    display: block;
+    opacity: 1;
+  }
+  joomla-alert .joomla-alert--close, joomla-alert .joomla-alert-button--close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--atum-text-light);
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  joomla-alert .joomla-alert--close:hover, joomla-alert .joomla-alert--close:focus, joomla-alert .joomla-alert-button--close:hover, joomla-alert .joomla-alert-button--close:focus {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+  }
+  joomla-alert button.joomla-alert-button--close {
+
+    cursor: pointer;
+  }
+
+  joomla-alert[type="success"] {
+    color: var(--atum-text-dark);
+    background-color: var(--atum-text-light);
+    border-color: var(--success);
+  }
+  joomla-alert[type="success"] hr {
+    border-top-color: var(--success);
+  }
+  joomla-alert[type="success"] .alert-link {
+    color: var(--success);
+  }
+
+  joomla-alert[type="info"] {
+    color: var(--atum-text-dark);
+    background-color: var(--atum-text-light);
+    border-color: var(--info);
+  }
+  joomla-alert[type="info"] hr {
+    border-top-color: var(--info);
+  }
+  joomla-alert[type="info"] .alert-link {
+    color: var(--info);
+  }
+
+  joomla-alert[type="warning"] {
+    color: var(--atum-text-dark);
+    background-color: var(--atum-text-light);
+    border-color: var(--warning);
+  }
+  joomla-alert[type="warning"] hr {
+    border-top-color: var(--warning);
+  }
+  joomla-alert[type="warning"] .alert-link {
+    color: var(--warning);
+  }
+
+  joomla-alert[type="danger"] {
+    color: var(--atum-text-dark);
+    background-color: var(--atum-text-light);
+    border-color: var(--danger);
+  }
+  joomla-alert[type="danger"] hr {
+    border-top-color: var(--danger);
+  }
+  joomla-alert[type="danger"] .alert-link {
+    color: var(--danger);
+  }
+
+  html[dir=rtl] joomla-alert .joomla-alert--close,
+  html[dir=rtl] joomla-alert .joomla-alert-button--close {
+    right: auto;
+    left: -1.25rem;
+    float: left;
+  }
+
+}

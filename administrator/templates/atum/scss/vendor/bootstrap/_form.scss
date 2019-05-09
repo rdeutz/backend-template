@@ -102,21 +102,6 @@ legend {
   box-shadow: 0 0 2px 1px var(--atum-bg-dark);
 }
 
-.custom-select {
-  padding: $input-select-padding;
-  background-color: var(--atum-bg-dark);
-  background-image: url(../images/select-bg.svg);
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: 1854px;
-  min-width: 10rem;
-  box-shadow: $atum-box-shadow;
-
-  optgroup, option {
-    background-color: $white;
-  }
-}
-
 .custom-select[multiple] {
   padding: 0;
   background-color: var(--white-offset);
@@ -130,6 +115,7 @@ legend {
     }
   }
 }
+
 
 joomla-field-switcher {
 	height: 38px;
@@ -154,24 +140,6 @@ joomla-field-switcher {
   }
 }
 
-
-@include media-breakpoint-down(xs) {
-  .control-group {
-    .control-label{
-      float:none;
-      width:95%;
-    }
-    .controls{
-      margin-left:0;
-      .form-control,
-      .custom-select{
-        max-width:90%;
-      }
-    }
-  }
-
-}
-
 .field-media-wrapper {
   max-width: calc(50vw - 5rem);
   width: 100%;
@@ -193,3 +161,8 @@ joomla-field-switcher {
   }
 }
 
+.form-vertical label {
+  width: 100%;
+  color: var(--atum-text-dark);
+  opacity: 0.8;
+}

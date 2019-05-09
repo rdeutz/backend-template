@@ -576,3 +576,56 @@ body {
 
 }
 
+.js-stools-container-filters-inner {
+  position: relative;
+}
+
+.js-stools-field-list, .js-stools-field-filter {
+  position: relative;
+
+  &::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    color: var(--atum-text-dark);
+    opacity: 0.95;
+    border: none;
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    pointer-events: none;
+    text-align: left;
+  }
+}
+
+.js-stools .js-stools-field-list {
+  display:inline-block;
+}
+
+.js-stools .js-stools-field-filter {
+  display:block;
+}
+
+.custom-select, .choices__inner {
+  padding: 0.1rem 0.6rem 0.1rem 2rem;
+
+  background: var(--atum-bg-dark-5);
+  background: -moz-linear-gradient(left, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  background: -webkit-linear-gradient(left, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  background: linear-gradient(to right, var(--atum-bg-dark-5) 0, var(--atum-bg-dark-5) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-bg-dark-5)', endColorstr='#ffffff', GradientType=1);
+
+  text-align: right;
+
+  &:hover {
+    background: var(--atum-bg-dark-10);
+    background: -moz-linear-gradient(left, var(--atum-bg-dark-10) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    background: -webkit-linear-gradient(left, var(--atum-bg-dark-10-5) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    background: linear-gradient(to right, var(--atum-bg-dark-10) 0, var(--atum-bg-dark-10) 2.4rem, #ffffff 2.401rem, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--atum-bg-dark-10)', endColorstr='#ffffff', GradientType=1);
+  }
+
+}
+
+#system-message-container joomla-alert .joomla-alert--close, #system-message-container joomla-alert .joomla-alert-button--close {
+  left:1rem;
+}
