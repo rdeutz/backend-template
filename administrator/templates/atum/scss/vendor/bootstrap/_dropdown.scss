@@ -38,9 +38,15 @@
     }
 
     .btn-group.show .dropdown-menu &:not(.disabled) {
-      background-color: #efefef;
+      background-color: $whiteoffset;
     }
+
+    color: var(--atum-text-light);
+    background-color: var(--atum-bg-dark);
+
   }
+
+
 
   & + .dropdown-item {
     border-top: 1px solid rgba(0, 0, 0, .1);
@@ -53,4 +59,11 @@
   .dropdown-save-group .dropdown-menu &:not(.disabled) {
     color: theme-color("success");
   }
+}
+
+
+.btn-group.show .dropdown-menu .dropdown-item:focus:not(.disabled),
+.btn-group.show .dropdown-menu .dropdown-item:hover:not(.disabled) {
+  background-color: var(--atum-bg-dark-5);
+  color: var(--atum-text-dark);
 }

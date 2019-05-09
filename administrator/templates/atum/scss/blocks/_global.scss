@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  font-smooth: subpixel-antialiased;
 }
 
 body {
@@ -205,4 +206,9 @@ a[target="_blank"]:before {
   @include media-breakpoint-up(md) {
     column-count: 2;
   }
+}
+
+.tiny {
+  font-size: $font-size-vsm;
+  line-height: 1.4rem;
 }

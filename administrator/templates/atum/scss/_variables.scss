@@ -25,8 +25,10 @@ $indigo:                           #0377be; //used in bootstrap
 $purple:                           #6f42c1; //used in bootstrap
 $pink:                             #e83e8c; //used in bootstrap
 $red:                              #c52827; //used in bootstrap
+$red-dark:                         #3b0d0c; //used for alerts error
 $yellow:                           #d43900; //used in bootstrap
 $green:                            #2f7d32; //used in bootstrap
+$green-dark:                       #0f2f21; // used for alert success
 $teal:                             #20c997; //used in bootstrap
 $cyan:                             #108193; //used in bootstrap
 
@@ -61,7 +63,9 @@ $theme-colors: map-merge((
   atum-link-color:                 #2077dd,
   atum-text-dark:                  $gray-700,
   atum-bg-dark:                    $color-60, //standard background color
-  action:                          $color-60
+  action:                          $color-60,
+  error:                           $red-dark,
+  alert-success:                    $green-dark
 ), $theme-colors);
 
 $colors: (
@@ -110,7 +114,7 @@ $input-max-width:                  15rem;
 $header-height:                    3.5rem;
 
 // Toolbar
-$atum-toolbar-line-height:         2.375rem;
+$atum-toolbar-line-height:         2.2rem;
 
 // Sidebar
 $sidebar-width:                    15.625rem;
@@ -127,7 +131,7 @@ $h4-font-size:                     1rem;
 $h5-font-size:                     .9286rem;
 $h6-font-size:                     .8571rem;
 $font-size-sm:                     .8rem;
-$font-size-vsm:                     .5rem;
+$font-size-vsm:                     .6rem;
 $display1-size:                    1rem;
 $display2-size:                    .875rem;
 $content-font-size:                0.875rem;
@@ -181,9 +185,9 @@ $card-border-width:                0;
 $card-border-color:                transparent;
 
 // Alerts
-$state-success-text:               var(--white);
-$state-success-bg:                 var(--success);
-$state-success-border:             var(--success-border);
+$state-success-text:               var(--alert-success);
+$state-success-bg:                 lighten($green-dark, 70%);
+$state-success-border:             lighten($green-dark, 30%);
 
 $state-info-text:                  var(--white);
 $state-info-bg:                    var(--info);
@@ -197,9 +201,15 @@ $state-danger-text:                var(--white);
 $state-danger-bg:                  var(--danger);
 $state-danger-border:              var(--danger-border);
 
+$state-error-text:                var(--error);
+$state-error-bg:                  lighten($red-dark, 70%);
+$state-error-border:              lighten($red-dark, 30%);
+
+
+
 // Badges
-$success-bg:                       #a2f5bf;
-$success-txt:                     #0f2f21;
+$success-bg:                       #BAE0B7;
+$success-txt:                      #114B0C;
 
 $warning-bg:                       #fcd9b6;
 $warning-txt:                     #462a16;

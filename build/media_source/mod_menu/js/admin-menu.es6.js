@@ -59,14 +59,14 @@
     const sidebarState = localStorage.getItem('atum-sidebar');
     if (sidebarState === 'open' || sidebarState === null) {
       wrapper.classList.remove('closed');
-      menuToggleIcon.classList.remove('fa-toggle-off');
-      menuToggleIcon.classList.add('fa-toggle-on');
+      menuToggleIcon.classList.remove('fa-bars');
+      menuToggleIcon.classList.add('fa-times');
       localStorage.setItem('atum-sidebar', 'open');
       Joomla.Event.dispatch('joomla:menu-toggle', 'open');
     } else {
       wrapper.classList.add('closed');
-      menuToggleIcon.classList.remove('fa-toggle-on');
-      menuToggleIcon.classList.add('fa-toggle-off');
+      menuToggleIcon.classList.remove('fa-times');
+      menuToggleIcon.classList.add('fa-bars');
       localStorage.setItem('atum-sidebar', 'closed');
       Joomla.Event.dispatch('joomla:menu-toggle', 'closed');
     }
@@ -100,8 +100,8 @@
     // Toggle menu
     menuToggle.addEventListener('click', () => {
       wrapper.classList.toggle('closed');
-      menuToggleIcon.classList.toggle('fa-toggle-on');
-      menuToggleIcon.classList.toggle('fa-toggle-off');
+      menuToggleIcon.classList.toggle('fa-times');
+      menuToggleIcon.classList.toggle('fa-bars');
 
       const listItems = [].slice.call(document.querySelectorAll('.main-nav > li'));
       listItems.forEach((item) => {
