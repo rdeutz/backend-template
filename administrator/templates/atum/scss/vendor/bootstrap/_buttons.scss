@@ -431,3 +431,28 @@
   }
 }
 
+.input-group-append {
+
+  .btn {
+    padding: .1rem .7rem .1rem .7rem;
+    span[class*="icon-"]:not(.input-group-text), span[class^="icon-"]:not(.input-group-text),
+    span[class*="fa-"]:not(.input-group-text), span[class^="fa-"]:not(.input-group-text) {
+    position: relative;
+      left:inherit;
+      bottom:inherit;
+    }
+  }
+
+  .btn-primary {
+    background: var(--atum-bg-dark);
+    &:hover {
+      background: var(--atum-bg-dark);
+    }
+  }
+  .btn-secondary {
+    background: var(--atum-link-color);
+    &:hover {
+      background: var(--atum-link-color);
+    }
+  }
+}
