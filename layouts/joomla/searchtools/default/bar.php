@@ -57,7 +57,7 @@ $filters = $data['view']->filterForm->getGroup('filter');
 					<span class="fa fa-caret-down" aria-hidden="true"></span>
 				</button>
 			</div>
-            <button type="button" class="btn btn-primary js-stools-btn-clear mr-2">
+            <button type="button" class="btn btn-primary btn-danger js-stools-btn-clear mr-2">
 				<?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?>
             </button>
         </div>
