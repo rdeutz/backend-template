@@ -51,7 +51,7 @@ $filters = $data['view']->filterForm->getGroup('filter');
 			</div>
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary hasTooltip js-stools-btn-filter">
-                    <span class="badge badge-pill badge-danger js-stools-filter-count"></span>
+                    <span class="badge badge-pill badge-danger js-stools-filter-count" style="display: none;"></span>
                     <?php echo Text::_('JFILTER_OPTIONS'); ?>
 					<span class="fa fa-caret-down" aria-hidden="true"></span>
 				</button>
