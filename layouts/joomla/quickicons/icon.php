@@ -58,7 +58,7 @@ if ($id !== '')
 	</a>
 	<?php // Add the link to the edit-form
 		if (!empty($displayData['linkadd'])): ?>
-			<a class="btn btn-sm btn-secondary btn-block quickicon-linkadd j-links-link mt-2" href="<?php echo $displayData['linkadd']; ?>">
+			<a class="btn btn-secondary btn-block quickicon-linkadd j-links-link mt-2" href="<?php echo $displayData['linkadd']; ?>">
 				<span class="fa fa-plus mr-2" aria-hidden="true"></span>
 				<span class="sr-only"><?php echo Text::sprintf('MOD_QUICKICON_ADD_NEW', $add); ?></span>
 				<span aria-hidden="true"><?php echo $add; ?></span>
