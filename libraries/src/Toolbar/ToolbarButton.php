@@ -202,7 +202,7 @@ abstract class ToolbarButton
 			case 'options':
 			case 'help':
 				$options['text'] = '';
-				$options['btnClass'] = '';
+				$options['btnClass'] = 'btn btn-link';
 				break;
 		}
 
