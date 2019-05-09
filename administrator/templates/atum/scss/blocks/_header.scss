@@ -25,16 +25,16 @@
       width: $sidebar-width-closed;
       transition: width .3s ease;
 
-      img:not(.logo-small) {
+      svg:not(.logo-small) {
         display: none;
       }
 
-      img.logo-small {
+      svg.logo-small {
         display: inline-block;
       }
     }
 
-    img {
+    svg {
       height: 1.3rem;
       margin-left: 0.8rem;
       max-width: calc(15.625rem - 0.8rem);
