@@ -173,9 +173,9 @@
 
         wrapper.classList.remove('closed');
         localStorage.setItem('atum-sidebar', 'open');
-        if (menuToggleIcon.classList.contains('fa-toggle-off')){
-          menuToggleIcon.classList.toggle('fa-toggle-off');
-          menuToggleIcon.classList.toggle('fa-toggle-on');
+        if (menuToggleIcon.classList.contains('fa-bars')){
+          menuToggleIcon.classList.remove('fa-bars');
+          menuToggleIcon.classList.add('fa-times');
         }
         mainNav.classList.add('child-open');
 
