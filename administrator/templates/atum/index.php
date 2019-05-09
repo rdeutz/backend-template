@@ -244,8 +244,8 @@ $this->addStyleDeclaration($css);
             <div id="sidebarmenu">
                 <div class="sidebar-toggle">
                   <a id="menu-collapse" href="#">
-                       <span id="menu-collapse-icon" class="fa-fw fa fa-toggle-off" aria-hidden="true"></span>
-                       <span class="sidebar-item-title"><?php echo Text::_('TPL_ATUM_TOGGLE_SIDEBAR'); ?></span>
+                       <span id="menu-collapse-icon" class="fa fa-fw fa-bars" aria-hidden="true"></span>
+                       <span class="sidebar-item-title"><?php echo Text::_('TPL_ATUM_COLLAPSE_SIDEBAR'); ?></span>
                   </a>
                 </div>
                 <jdoc:include type="modules" name="menu" style="none"/>

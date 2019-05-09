@@ -47,13 +47,17 @@
 
   .page-title {
     margin: 0 7.5px;
-    font-size: 1.2rem;
     line-height: $header-height;
     color: var(--atum-special-color);
+    font-size: 1rem;
+    font-weight: 700;
 
     [class^='icon-'] {
-      margin-right: 10px;
-      font-size: 1rem;
+      margin-right: 0.2rem;
+      font-size: 0.7rem;
+      color: var(--atum-special-color);
+      position: relative;
+      bottom: 0.15rem;
     }
     @include media-breakpoint-down(md){
       width: 160px;
