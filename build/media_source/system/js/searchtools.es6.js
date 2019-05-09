@@ -300,7 +300,12 @@ Joomla = window.Joomla || {};
     // eslint-disable-next-line class-methods-use-this
     updateFilterCount(count) {
       if (this.filtersCount) {
-        this.filtersCount.innerText = count;
+        if (count >= 1) {
+          this.filtersCount.innerText = count;
+          this.filtersCount.style.display = 'inline-block';
+        } else {
+          this.filtersCount.style.display = 'none';
+        }
       }
 
       if (this.clearButton) {
