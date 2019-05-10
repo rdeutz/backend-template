@@ -9,15 +9,8 @@ jQuery(document).ready(function() {
 	    plg_quickicon_privacycheck_url = variables.plg_quickicon_privacycheck_url,
 	    plg_quickicon_privacycheck_text = variables.plg_quickicon_privacycheck_text;
 	var ajax_structure = {
-		success: function(data, textStatus, jqXHR) {
+		success: function(requestList, textStatus, jqXHR) {
 			var link = jQuery('#plg_quickicon_privacycheck').find('span.j-links-link');
-
-			try {
-				var requestList = jQuery.parseJSON(data);
-			} catch (e) {
-				// An error occurred
-				link.html(plg_quickicon_privacycheck_text.ERROR);
-			}
 
 			if (requestList.data.number_urgent_requests == 0) {
 				// No requests
