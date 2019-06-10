@@ -65,7 +65,7 @@ steps:
   - name: php74-unit
     depends_on: [ rebuild-cache ]
     image: phpdaily/php:7.4-dev
-    errignore: true
+    failure: ignore
     commands:
       - php -v
       - ./libraries/vendor/bin/phpunit
@@ -73,7 +73,7 @@ steps:
   - name: php80-unit
     depends_on: [ rebuild-cache ]
     image: phpdaily/php:8.0-dev
-    errignore: true
+    failure: ignore
     commands:
       - php -v
       - ./libraries/vendor/bin/phpunit
@@ -154,6 +154,6 @@ services:
 
 ---
 kind: signature
-hmac: b3612d74787777acabd3dde88d2a002b0c893d054831525464f4db51e31493b8
+hmac: a89479af57eea568860628cff10fa8a8f01ff5db533b69c55439108748544493
 
 ...
